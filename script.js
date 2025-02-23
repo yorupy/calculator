@@ -12,9 +12,6 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) {
-        return "ERR DIVISION BY ZERO"
-    }
     return a / b;
 }
 
@@ -22,8 +19,8 @@ let previousValue = "";
 let currentValue = "";
 let operator = "";
 
-function operate(a, b, operand) {
-    switch (operand) {
+function operate(a, b, operator) {
+    switch (operator) {
         case "+":
             return add(a, b);
         case "-":
@@ -81,6 +78,39 @@ function updateDisplay(text) {
     scrollDisplay();
 }
 
+function addEqualsEvent() {
+    const equalsButton = document.querySelector("#equals");
+    equalsButton.addEventListener("click", calculate);
+}
+
+function calculate() {
+    if (!validateOperation()) {
+        return;
+    }
+    const result = operate(Number(previousValue), Number(currentValue), operator);
+    if (isNaN(result)) {
+        updateDisplay("Invalid Operation");
+        reset();
+    } else {
+        reset();
+        previousValue = String(result);
+        updateDisplay();
+    }
+}
+
+function validateOperation() {
+    if (!previousValue || !currentValue) {
+        return false;
+    }
+    return true;
+}
+
+function reset() {
+    previousValue = "";
+    currentValue = "";
+    operator = "";
+}
+
 function scrollDisplay() {
     const display = document.querySelector(".display");
     if (display.scrollWidth > display.clientWidth) {
@@ -90,3 +120,4 @@ function scrollDisplay() {
 
 addNumbersEvent();
 addOperatorEvent();
+addEqualsEvent();

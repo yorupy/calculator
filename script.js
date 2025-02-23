@@ -64,6 +64,7 @@ function handleNumberClick(event) {
     const number = event.target.textContent;
     currentValue += number;
     updateDisplay();
+    console.log(previousValue, currentValue, operator)
 }
 
 function updateDisplay(text) {
@@ -93,7 +94,7 @@ function calculate() {
         reset();
     } else {
         reset();
-        previousValue = String(result);
+        currentValue = String(result);
         updateDisplay();
     }
 }

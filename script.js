@@ -57,6 +57,14 @@ function updateDisplay(text) {
     } else {
         display.textContent = `${currentValue} ${operand}`;
     }
+    scrollDisplay();
+}
+
+function scrollDisplay() {
+    const display = document.querySelector(".display");
+    if (display.scrollWidth > display.clientWidth) {
+        display.scrollLeft = display.scrollWidth;
+    }
 }
 
 addNumbersEvent();

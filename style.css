@@ -21,14 +21,14 @@ main {
 }
 
 .display {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 80px;
+    display: block;
+    height: 90px;
+    text-align: end;
     font-size: 40px;
     background-color: #EFEFEF;
     border: 1px solid black;
     padding: 10px;
+    overflow-x: scroll;
 }
 
 .keyboard {

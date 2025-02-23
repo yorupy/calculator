@@ -18,9 +18,9 @@ function divide(a, b) {
     return a / b;
 }
 
-const firstValue = "";
-const secondValue = "";
-const operand = "";
+let previousValue = "";
+let currentValue = "";
+let operand = "";
 
 function operate(a, b, operand) {
     switch (operand) {
@@ -34,3 +34,29 @@ function operate(a, b, operand) {
             return divide(a, b);
     }
 }
+
+function addNumbersEvent() {
+    const numberButtons = document.querySelectorAll(".number");
+    numberButtons.forEach((button) => {
+        button.addEventListener("click", handleNumberClick)
+    })
+}
+
+function handleNumberClick(event) {
+    const number = event.target.textContent;
+    currentValue += number;
+    updateDisplay();
+}
+
+function updateDisplay(text) {
+    const display = document.querySelector(".display");
+    if (text) {
+        display.textContent = text;
+    } else if (previousValue) {
+        display.textContent = `${previousValue} ${operand} ${currentValue}`;
+    } else {
+        display.textContent = `${currentValue} ${operand}`;
+    }
+}
+
+addNumbersEvent();

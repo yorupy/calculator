@@ -1,0 +1,54 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: "Ubuntu", serif;
+}
+
+main {
+    width: 400px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid black;
+}
+
+.display {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    height: 80px;
+    font-size: 40px;
+    background-color: #EFEFEF;
+    border: 1px solid black;
+    padding: 10px;
+}
+
+.keyboard {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex: 1;
+}
+
+.row button {
+    box-sizing: content-box;
+    border: 1px solid black;
+    flex: 1;
+    font-size: 25px;
+}
+
+#clear {
+    flex-grow: 3;
+    text-transform: uppercase;
+}

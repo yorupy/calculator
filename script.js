@@ -17,3 +17,20 @@ function divide(a, b) {
     }
     return a / b;
 }
+
+const firstValue = "";
+const secondValue = "";
+const operand = "";
+
+function operate(a, b, operand) {
+    switch (operand) {
+        case "+":
+            return add(a, b);
+        case "-":
+            return subtract(a, b);
+        case "*":
+            return multiply(a, b);
+        case "/":
+            return divide(a, b);
+    }
+}

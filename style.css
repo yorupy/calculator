@@ -48,6 +48,14 @@ main {
     font-size: 25px;
 }
 
+.row button:hover {
+    background-color: rgb(229, 229, 229);
+}
+
+.row button:active {
+    background-color: rgb(209, 209, 209);
+}
+
 #clear {
     flex-grow: 3;
     text-transform: uppercase;

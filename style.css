@@ -52,3 +52,7 @@ main {
     flex-grow: 3;
     text-transform: uppercase;
 }
+
+#divide {
+    max-width: 25%;
+}

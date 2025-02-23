@@ -26,6 +26,7 @@ main {
     text-align: end;
     font-size: 40px;
     background-color: #EFEFEF;
+    scrollbar-color: rgb(100, 100, 100) #EFEFEF;
     border: 1px solid black;
     padding: 10px;
     overflow-x: scroll;

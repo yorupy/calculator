@@ -20,7 +20,7 @@ function divide(a, b) {
 
 let previousValue = "";
 let currentValue = "";
-let operand = "";
+let operator = "";
 
 function operate(a, b, operand) {
     switch (operand) {
@@ -42,6 +42,27 @@ function addNumbersEvent() {
     })
 }
 
+function addOperatorEvent() {
+    const operatorButtons = document.querySelectorAll(".operator")
+    operatorButtons.forEach((button) => {
+        button.addEventListener('click', handleOperatorClick);
+    })
+}
+
+function handleOperatorClick(event) {
+    const newOperator = event.target.textContent;
+    if (!operator) {
+        swapValues();
+    }
+    operator = newOperator;
+    updateDisplay();
+}
+
+function swapValues() {
+    previousValue = currentValue;
+    currentValue = "";
+}
+
 function handleNumberClick(event) {
     const number = event.target.textContent;
     currentValue += number;
@@ -53,9 +74,9 @@ function updateDisplay(text) {
     if (text) {
         display.textContent = text;
     } else if (previousValue) {
-        display.textContent = `${previousValue} ${operand} ${currentValue}`;
+        display.textContent = `${previousValue} ${operator} ${currentValue}`;
     } else {
-        display.textContent = `${currentValue} ${operand}`;
+        display.textContent = `${currentValue} ${operator}`;
     }
     scrollDisplay();
 }
@@ -68,3 +89,4 @@ function scrollDisplay() {
 }
 
 addNumbersEvent();
+addOperatorEvent();

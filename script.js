@@ -48,6 +48,9 @@ function addOperatorEvent() {
 
 function handleOperatorClick(event) {
     const newOperator = event.target.textContent;
+    if (currentValue) {
+        calculate();
+    }
     if (!operator) {
         swapValues();
     }

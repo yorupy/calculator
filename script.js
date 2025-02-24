@@ -140,7 +140,16 @@ function roundThreePlaces(value) {
     return Math.round(value * 1000) / 1000;
 }
 
+function addClearEvent() {
+    const clearButton = document.querySelector("#clear");
+    clearButton.addEventListener('click', () => {
+        reset();
+        updateDisplay("0");
+    })
+}
+
 addNumbersEvent();
 addOperatorEvent();
 addEqualsEvent();
 addDotEvent();
+addClearEvent();

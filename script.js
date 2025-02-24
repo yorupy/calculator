@@ -71,7 +71,6 @@ function handleNumberClick(event) {
     const number = event.target.textContent;
     currentValue += number;
     updateDisplay();
-    console.log(previousValue, currentValue, operator)
 }
 
 function updateDisplay(text) {
@@ -163,9 +162,44 @@ function addDeleteEvent() {
     })
 }
 
+function addNumberKeyboardEvents() {
+    const body = document.querySelector("body");
+    body.addEventListener("keydown", (e) => {
+        const numberButtons = document.querySelectorAll(".number");
+        for (let i = 0; i < numberButtons.length; i++) {
+            if (numberButtons[i].textContent === e.key) {
+                numberButtons[i].click();
+                return;
+            }
+        }
+    });
+}
+
+function addOtherKeyboardEvents() {
+    const body = document.querySelector("body");
+    const specialKeys = {
+        "c": "clear",
+        "Backspace": "delete",
+        ".": "dot",
+        "=": "equals",
+        "+": "add",
+        "/": "divide",
+        "x": "multiply",
+        "-": "subtract"
+    }
+    body.addEventListener("keydown", (e) => {
+        if (e.key in specialKeys) {
+            const button = document.querySelector(`#${specialKeys[e.key]}`);
+            button.click();
+        }
+    });
+}
+
 addNumbersEvent();
 addOperatorEvent();
 addEqualsEvent();
 addDotEvent();
 addClearEvent();
 addDeleteEvent();
+addNumberKeyboardEvents();
+addOtherKeyboardEvents();

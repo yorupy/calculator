@@ -118,7 +118,7 @@ function addDotEvent() {
 }
 
 function handleDotClick() {
-    if (currentValue.length === 0 || isNaN(currentValue)) {
+    if (currentValue.length === 0 || isNaN(currentValue) || currentValue.includes(".")) {
         return;
     }
     currentValue += ".";

@@ -148,8 +148,21 @@ function addClearEvent() {
     })
 }
 
+function deleteByOne(string) {
+    return string.slice(0, -1);
+}
+
+function addDeleteEvent() {
+    const deleteButton = document.querySelector("#delete");
+    deleteButton.addEventListener("click", () => {
+        currentValue = deleteByOne(currentValue);
+        updateDisplay();
+    })
+}
+
 addNumbersEvent();
 addOperatorEvent();
 addEqualsEvent();
 addDotEvent();
 addClearEvent();
+addDeleteEvent();

@@ -1,4 +1,9 @@
 
+
+let previousValue = "";
+let currentValue = "";
+let operator = "";
+
 function add(a, b) {
     return a + b;
 }
@@ -14,10 +19,6 @@ function multiply(a, b) {
 function divide(a, b) {
     return a / b;
 }
-
-let previousValue = "";
-let currentValue = "";
-let operator = "";
 
 function operate(a, b, operator) {
     switch (operator) {
@@ -109,6 +110,19 @@ function validateOperation() {
     return true;
 }
 
+function addDotEvent() {
+    const dotButton = document.querySelector("#dot");
+    dotButton.addEventListener("click", handleDotClick);
+}
+
+function handleDotClick() {
+    if (currentValue.length === 0 || isNaN(currentValue)) {
+        return;
+    }
+    currentValue += ".";
+    updateDisplay();
+}
+
 function reset() {
     previousValue = "";
     currentValue = "";
@@ -125,3 +139,4 @@ function scrollDisplay() {
 addNumbersEvent();
 addOperatorEvent();
 addEqualsEvent();
+addDotEvent();

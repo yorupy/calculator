@@ -49,10 +49,13 @@ function addOperatorEvent() {
 
 function handleOperatorClick(event) {
     const newOperator = event.target.textContent;
-    if (currentValue) {
+    if (!previousValue && !currentValue) {
+        return;
+    }
+    if (operator && previousValue && currentValue) {
         calculate();
     }
-    if (!operator) {
+    if (currentValue) {
         swapValues();
     }
     operator = newOperator;

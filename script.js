@@ -98,7 +98,7 @@ function calculate() {
         reset();
     } else {
         reset();
-        currentValue = String(result);
+        currentValue = String(roundThreePlaces(result));
         updateDisplay();
     }
 }
@@ -134,6 +134,10 @@ function scrollDisplay() {
     if (display.scrollWidth > display.clientWidth) {
         display.scrollLeft = display.scrollWidth;
     }
+}
+
+function roundThreePlaces(value) {
+    return Math.round(value * 1000) / 1000;
 }
 
 addNumbersEvent();
